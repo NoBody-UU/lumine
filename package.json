@@ -3,16 +3,26 @@
   "version": "0.1.0",
   "description": "A peruvian version of Lumine.",
   "main": "./build/index.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "biome lint --apply ./src",
+    "format": "biome check --apply ./src"
   },
   "keywords": [],
   "author": "",
   "license": "MIT",
   "devDependencies": {
-    "@biomejs/biome": "1.5.2"
+    "@biomejs/biome": "1.5.2",
+    "prisma": "^5.8.1"
   },
   "dependencies": {
-    "oceanic.js": "1.8.2-dev.b0bc901"
+    "dotenv": "^16.3.1",
+    "oceanic.js": "1.8.2-dev.b0bc901",
+    "taskwizard": "^1.0.0"
+  },
+  "imports": {
+    "#lumine/client": "./build/lib/classes/Lumine.js",
+    "#lumine/builders": "./build/lib/builder/index.js"
   }
 }
