@@ -1,0 +1,18 @@
+{
+  "name": "lumine-bot",
+  "version": "0.1.0",
+  "description": "A peruvian version of Lumine.",
+  "main": "./build/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@biomejs/biome": "1.5.2"
+  },
+  "dependencies": {
+    "oceanic.js": "1.8.2-dev.b0bc901"
+  }
+}
