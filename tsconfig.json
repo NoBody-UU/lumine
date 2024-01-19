@@ -14,6 +14,7 @@
       "#lumine/types": ["./src/lib/types/index.d.ts"],
       "#lumine/client": ["./src/lib/classes/Lumine.ts"],
       "#lumine/builders": ["./src/lib/builder/index.ts"],
+      "#lumine/*": ["./src/*"]
     }
   },
   "exclude": ["node_modules", "**/node_modules/*"],

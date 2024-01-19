@@ -1,0 +1,1 @@
+export type ColorResolvable = number|[number, number, number];

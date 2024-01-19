@@ -1,8 +1,9 @@
 //I HATE THIS FILE.
+import { ColorResolvable } from "#lumine/types";
 
 interface BotColors {
-	main: number | string;
-	error: number | string;
+	main: ColorResolvable;
+	error: ColorResolvable;
 }
 
 interface BotChannels {
@@ -10,9 +11,16 @@ interface BotChannels {
 	errorId: string;
 }
 
+interface BotCache {
+	users: number;
+	guilds: number;
+}
+
 export interface BotConfig {
 	ownerId: string[];
+	guildId: string;
 	prefixes: string[];
 	colors: BotColors;
 	channels: BotChannels;
+	cache: BotCache;
 }
