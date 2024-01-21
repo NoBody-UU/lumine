@@ -1,7 +1,9 @@
 import { pathToFileURL } from "node:url";
 import { searchFilesRecursive } from "taskwizard";
-import { type ClientEvents, ApplicationCommandTypes } from "oceanic.js";
 import { AsciiTable3 } from "ascii-table3";
+import { InvalidCommand } from "#lumine/errors";
+
+import { type ClientEvents, ApplicationCommandTypes } from "oceanic.js";
 
 import type { LumineEvent, LumineCommand } from "#lumine/builders";
 import type { Lumine } from "#lumine/client";
@@ -48,11 +50,13 @@ export class Handlers {
 			const BaseCommand = await this.import(file);
 			const command: LumineCommand = new BaseCommand();
 
-			if (!command.data.name) throw new Error("A command doesn't have a name.");
-			if (command.data.type !== ApplicationCommandTypes.CHAT_INPUT) throw new Error(`Command: "${command.data.name}" have a invalid command type.`);
-			if (!command.data.description) throw new Error(`Command: "${command.data.name}" doesn't have a description.`);
+			if (!command.data.name) throw new InvalidCommand("A command doesn't have a name.");
+			if (command.data.type !== ApplicationCommandTypes.CHAT_INPUT)
+				throw new InvalidCommand(`"${command.data.name}" have a invalid command type.`);
+			if (!command.data.description)
+				throw new InvalidCommand(`"${command.data.name}" doesn't have a description.`);
 
-			if (command.toGuild) client.appCommands.dev.push(command.data);
+			if (command.options?.toGuild) client.appCommands.dev.push(command.data);
 			else client.appCommands.global.push(command.data);
 
 			client.commands.set(command.data.name, command);

@@ -5,17 +5,17 @@ import type { Awaitable } from "#lumine/types";
 interface EventData<K extends keyof ClientEvents> {
 	name: K;
 	once?: boolean;
-};
+}
 export abstract class LumineEvent<K extends keyof ClientEvents> {
 	readonly name: K;
 	readonly once?: boolean;
 
 	constructor(event: EventData<K>) {
 		const { name, once } = event;
-	
+
 		this.name = name;
 		this.once = once;
-	};
+	}
 
 	public abstract execute(client: Lumine, ...args: ClientEvents[K]): Awaitable<any>;
-};
+}

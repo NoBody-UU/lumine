@@ -1,15 +1,18 @@
-import type { CreateApplicationCommandOptions, CommandInteraction } from "oceanic.js";
-import type { Awaitable } from "#lumine/types";
-import { Lumine } from "#lumine/client";
+import type { CreateApplicationCommandOptions, CommandInteraction, AutocompleteInteraction } from "oceanic.js";
+import type { Awaitable, CommandData, CommandOptions } from "#lumine/types";
+import type { Lumine } from "#lumine/client";
 
 export abstract class LumineCommand {
-    readonly data: CreateApplicationCommandOptions;
+	readonly data: CreateApplicationCommandOptions;
+	readonly options?: CommandOptions;
 
-    abstract toGuild?: boolean;
+	constructor(command: CommandData) {
+		const { data, options } = command;
 
-    constructor(data: CreateApplicationCommandOptions) {
-        this.data = data;
-    };
+		this.data = data;
+		this.options = options;
+	}
 
-    public abstract execute(client: Lumine, interaction: CommandInteraction): Awaitable<any>;
-};
+	public abstract autocomplete?(client: Lumine, interaction: AutocompleteInteraction): Awaitable<any>;
+	public abstract execute(client: Lumine, interaction: CommandInteraction): Awaitable<any>;
+}

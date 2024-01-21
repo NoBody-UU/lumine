@@ -1,4 +1,4 @@
-import { BotConfig } from "#lumine/types";
+import type { BotConfig } from "#lumine/types";
 
 export const config: BotConfig = {
 	prefixes: ["!lumine", "lumine", "l!"],
@@ -8,7 +8,7 @@ export const config: BotConfig = {
 		logsId: "1181753936454090803",
 	},
 	colors: {
-		error: 0xED4245,
+		error: 0xed4245,
 		main: 0xf2dbbe,
 	},
 	ownerId: [

@@ -1,3 +1,3 @@
-export abstract class Base<T>{
-  abstract toJSON(): T;
+export abstract class Base<T> {
+	abstract toJSON(): T;
 }

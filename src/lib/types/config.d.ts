@@ -1,5 +1,5 @@
 //I HATE THIS FILE.
-import { ColorResolvable } from "#lumine/types";
+import type { ColorResolvable } from "#lumine/types";
 
 interface BotColors {
 	main: ColorResolvable;

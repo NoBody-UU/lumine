@@ -1,10 +1,10 @@
-declare  global {
-  namespace NodeJS {
-    interface ProcessEnv {
-      TOKEN: string;
-      DATABASE_URL: string;
-    }
-  }
+declare global {
+	namespace NodeJS {
+		interface ProcessEnv {
+			TOKEN: string;
+			DATABASE_URL: string;
+		}
+	}
 }
 
-export { };
+export {};

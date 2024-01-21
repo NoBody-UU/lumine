@@ -14,6 +14,8 @@
       "#lumine/types": ["./src/lib/types/index.d.ts"],
       "#lumine/client": ["./src/lib/classes/Lumine.ts"],
       "#lumine/builders": ["./src/lib/builder/index.ts"],
+      "#lumine/errors": ["./src/lib/errors/index.ts"],
+      "#lumine/validations": ["./src/lib/classes/Validations.ts"],
       "#lumine/*": ["./src/*"]
     }
   },
