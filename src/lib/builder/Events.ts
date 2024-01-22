@@ -6,7 +6,7 @@ interface EventData<K extends keyof ClientEvents> {
 	name: K;
 	once?: boolean;
 }
-export abstract class LumineEvent<K extends keyof ClientEvents> {
+export abstract class LumineEvent<K extends keyof ClientEvents> implements EventData<K> {
 	readonly name: K;
 	readonly once?: boolean;
 

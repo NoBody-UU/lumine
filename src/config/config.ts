@@ -1,8 +1,12 @@
 import type { BotConfig } from "#lumine/types";
+import { readFileSync } from "node:fs";
+
+const packageJSON = JSON.parse(readFileSync("package.json", "utf-8"));
 
 export const config: BotConfig = {
 	prefixes: ["!lumine", "lumine", "l!"],
 	guildId: "1075885077529120798",
+	version: packageJSON.version,
 	channels: {
 		errorId: "1181753936454090803",
 		logsId: "1181753936454090803",
@@ -19,5 +23,5 @@ export const config: BotConfig = {
 	cache: {
 		guilds: 10,
 		users: 100,
-	},
+	}
 };

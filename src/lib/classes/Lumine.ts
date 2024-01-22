@@ -1,4 +1,5 @@
 import { Client, type CreateApplicationCommandOptions } from "oceanic.js";
+
 import { config } from "#lumine/config/config.js";
 
 import { Handlers } from "./Handlers.js";
@@ -30,6 +31,7 @@ export class Lumine extends Client {
 			},
 			allowedMentions: { everyone: false, roles: false, users: false, repliedUser: false },
 		});
+
 		this.config = config;
 
 		this.handlers = new Handlers(this);
