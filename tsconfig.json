@@ -11,7 +11,7 @@
     "rootDir": "./src",
     "baseUrl": "./",
     "paths": {
-      "#lumine/types": ["./src/lib/types/index.d.ts"],
+      "#lumine/types": ["./src/lib/types/index.ts"],
       "#lumine/client": ["./src/lib/classes/Lumine.ts"],
       "#lumine/builders": ["./src/lib/builder/index.ts"],
       "#lumine/errors": ["./src/lib/errors/index.ts"],

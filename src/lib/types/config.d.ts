@@ -1,10 +1,8 @@
 //I HATE THIS FILE.
-import type { ColorResolvable } from "#lumine/types";
-import type { NodeOption } from "shoukaku";
 
 interface BotColors {
-	main: ColorResolvable;
-	error: ColorResolvable;
+	main: number;
+	error: number;
 }
 
 interface BotChannels {

@@ -8,6 +8,7 @@ export interface CommandOptions {
 	/** The bot command permissions. */
 	botPermissions?: PermissionName[];
 }
+
 export interface CommandData {
 	/** The command data. */
 	data: CreateApplicationCommandOptions;

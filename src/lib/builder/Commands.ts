@@ -2,7 +2,7 @@ import type { CreateApplicationCommandOptions, CommandInteraction, AutocompleteI
 import type { Awaitable, CommandData, CommandOptions } from "#lumine/types";
 import type { Lumine } from "#lumine/client";
 
-export abstract class LumineCommand {
+export abstract class LumineCommand implements CommandData {
 	readonly data: CreateApplicationCommandOptions;
 	readonly options?: CommandOptions;
 

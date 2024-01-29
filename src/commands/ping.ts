@@ -1,6 +1,7 @@
-import { EmbedBuilder, LumineCommand } from "#lumine/builders";
+import { LumineCommand } from "#lumine/builders";
 import { ApplicationCommandTypes, type CommandInteraction } from "oceanic.js";
 import type { Lumine } from "#lumine/client";
+import { EmbedBuilder } from "@oceanicjs/builders";
 
 export default class PingCommand extends LumineCommand {
 	constructor() {
@@ -19,7 +20,6 @@ export default class PingCommand extends LumineCommand {
 	public autocomplete: undefined;
 	public execute(client: Lumine, interaction: CommandInteraction) {
 		const embed = new EmbedBuilder()
-			.setAuthor(interaction.user)
 			.setDescription("Pong!")
 			.setColor(client.config.colors.main)
 			.toJSON();
