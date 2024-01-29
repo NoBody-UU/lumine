@@ -68,9 +68,9 @@ export class Lumine extends Client {
 			await this.application.bulkEditGuildCommands(guildId, dev);
 			await this.application.bulkEditGlobalCommands(global);
 
-			this.logger.info("Commands ~ Commands refreshed.")
+			this.logger.info("Commands ~ Commands refreshed.");
 		} catch (error) {
-			this.logger.error(`Commands ~ ${error}`)
+			this.logger.error(`Commands ~ ${error}`);
 		}
 	}
 }

@@ -23,5 +23,5 @@ export const config: BotConfig = {
 	cache: {
 		guilds: 10,
 		users: 100,
-	}
+	},
 };

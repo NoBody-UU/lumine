@@ -21,16 +21,12 @@ export class Logger {
 
 	public info(text: string) {
 		const label = "INFO";
-		console.log(
-			`[${chalk.grey(`${this.getTime}`)}] ✨ [${chalk.cyan(label)}]${this.setPadding(label)} ${text}`,
-		);
+		console.log(`[${chalk.grey(`${this.getTime}`)}] ✨ [${chalk.cyan(label)}]${this.setPadding(label)} ${text}`);
 	}
 
 	public warn(text: string) {
 		const label = "WARN";
-		console.log(
-			`[${chalk.grey(`${this.getTime}`)}] 🥖 [${chalk.yellow(label)}]${this.setPadding(label)} ${text}`,
-		);
+		console.log(`[${chalk.grey(`${this.getTime}`)}] 🥖 [${chalk.yellow(label)}]${this.setPadding(label)} ${text}`);
 	}
 
 	public error(text: string) {

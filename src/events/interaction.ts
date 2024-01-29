@@ -19,7 +19,7 @@ export default class InteractionCreate extends LumineEvent<"interactionCreate"> 
 				await command.execute(client, interaction);
 			} catch (error) {
 				interaction.reply({ content: "An error ocurred i guess?", flags: MessageFlags.EPHEMERAL });
-				client.logger.error(`Error: ${error}`)
+				client.logger.error(`Error: ${error}`);
 			}
 		}
 	}
