@@ -1,4 +1,12 @@
-import { type CreateApplicationCommandOptions, ApplicationCommandTypes, type PermissionName } from "oceanic.js";
+import type { Lumine } from "#lumine/client";
+import {
+	type CreateChatInputApplicationCommandOptions,
+	ApplicationCommandTypes,
+	type PermissionName,
+	type CommandInteraction,
+	type AutocompleteInteraction,
+} from "oceanic.js";
+import type { Awaitable } from "#lumine/types";
 
 export interface CommandOptions {
 	/** Send the command to the developer guild. */
@@ -11,7 +19,13 @@ export interface CommandOptions {
 
 export interface CommandData {
 	/** The command data. */
-	data: CreateApplicationCommandOptions;
+	data: Partial<CreateChatInputApplicationCommandOptions>;
 	/** The command handler options. */
 	options?: CommandOptions;
+	/** The command execute. */
+	execute?: CommandExecuteFn;
+	autocomplete?: AutocompleteFn;
 }
+
+export type CommandExecuteFn = (client: Lumine, interaction: CommandInteraction) => Awaitable<any>;
+export type AutocompleteFn = (client: Lumine, interaction: AutocompleteInteraction) => Awaitable<any>;

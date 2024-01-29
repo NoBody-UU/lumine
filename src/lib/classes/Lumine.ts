@@ -1,4 +1,4 @@
-import { Client, type CreateApplicationCommandOptions } from "oceanic.js";
+import { Client, type ComponentTypes, type SelectMenuTypes } from "oceanic.js";
 
 import { config } from "#lumine/config/config.js";
 
@@ -7,7 +7,7 @@ import { Database } from "./Database.js";
 import { Logger } from "./Logger.js";
 
 import type { BotConfig } from "#lumine/types";
-import type { LumineCommand } from "#lumine/builders";
+import type { LumineCommand, LumineComponent } from "#lumine/builders";
 
 export class Lumine extends Client {
 	readonly config: BotConfig;
@@ -16,10 +16,15 @@ export class Lumine extends Client {
 	public database: Database;
 	public logger: Logger;
 	public commands: Map<string, LumineCommand>;
+	public components: {
+		buttons: Map<string, LumineComponent<ComponentTypes.BUTTON>>;
+		modals: Map<string, LumineComponent<ComponentTypes.TEXT_INPUT>>;
+		menus: Map<string, LumineComponent<SelectMenuTypes>>;
+	};
 
-	readonly appCommands: {
-		global: CreateApplicationCommandOptions[];
-		dev: CreateApplicationCommandOptions[];
+	readonly arrays: {
+		global: any[];
+		guilds: any[];
 	};
 
 	constructor() {
@@ -39,8 +44,14 @@ export class Lumine extends Client {
 		this.logger = new Logger();
 		this.commands = new Map();
 
-		this.appCommands = {
-			dev: [],
+		this.components = {
+			buttons: new Map(),
+			menus: new Map(),
+			modals: new Map(),
+		};
+
+		this.arrays = {
+			guilds: [],
 			global: [],
 		};
 
@@ -50,6 +61,7 @@ export class Lumine extends Client {
 	public async loadHandlers(): Promise<void> {
 		await this.handlers.loadCommands();
 		await this.handlers.loadEvents();
+		await this.handlers.loadComponents();
 	}
 
 	public async run(): Promise<"🐔🐧🐐"> {
@@ -59,13 +71,13 @@ export class Lumine extends Client {
 	}
 
 	public async deployCommands(): Promise<void> {
-		const { dev, global } = this.appCommands;
+		const { guilds, global } = this.arrays;
 		const { guildId } = this.config;
 
 		this.logger.warn("Commands ~ Attemping to refresh commands...");
 
 		try {
-			await this.application.bulkEditGuildCommands(guildId, dev);
+			await this.application.bulkEditGuildCommands(guildId, guilds);
 			await this.application.bulkEditGlobalCommands(global);
 
 			this.logger.info("Commands ~ Commands refreshed.");

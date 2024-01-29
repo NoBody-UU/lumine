@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "biome lint --apply ./src",
+    "lint": "biome lint ./src",
     "format": "biome check --apply ./src"
   },
   "keywords": [],
@@ -32,6 +32,7 @@
     "#lumine/builders": "./build/lib/builder/index.js",
     "#lumine/errors": "./build/lib/errors/index.js",
     "#lumine/validations": "./build/lib/classes/Validations.js",
+    "#lumine/handlers": "./build/lib/handlers/index.js",
     "#lumine/*": "./build/*"
   }
 }

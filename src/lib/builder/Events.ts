@@ -1,21 +1,41 @@
 import type { ClientEvents } from "oceanic.js";
-import type { Lumine } from "#lumine/client";
-import type { Awaitable } from "#lumine/types";
+import type { EventData, EventExecuteFn } from "#lumine/types";
 
-interface EventData<K extends keyof ClientEvents> {
-	name: K;
-	once?: boolean;
-}
-export abstract class LumineEvent<K extends keyof ClientEvents> implements EventData<K> {
-	readonly name: K;
+export class LumineEvent<K extends keyof ClientEvents> implements EventData<K> {
+	readonly name?: K;
 	readonly once?: boolean;
 
-	constructor(event: EventData<K>) {
-		const { name, once } = event;
+	public execute?: EventExecuteFn<K>;
 
+	/**
+	 *
+	 * Set the event name.
+	 * @param name - Event name.
+	 */
+	constructor(name: K) {
 		this.name = name;
-		this.once = once;
+		this.once = false;
+		this.execute = undefined;
 	}
 
-	public abstract execute(client: Lumine, ...args: ClientEvents[K]): Awaitable<any>;
+	/**
+	 *
+	 * Emit the event one time.
+	 * @returns
+	 */
+	public setOnce() {
+		Reflect.set(this, "once", true);
+		return this;
+	}
+
+	/**
+	 *
+	 * Set the event execute function.
+	 * @param execute - Event execute function.
+	 * @returns
+	 */
+	public setExecute(execute: EventExecuteFn<K>) {
+		this.execute = execute;
+		return this;
+	}
 }

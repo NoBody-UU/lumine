@@ -16,6 +16,7 @@
       "#lumine/builders": ["./src/lib/builder/index.ts"],
       "#lumine/errors": ["./src/lib/errors/index.ts"],
       "#lumine/validations": ["./src/lib/classes/Validations.ts"],
+      "#lumine/handlers": ["./src/lib/handlers/index.ts"],
       "#lumine/*": ["./src/*"]
     }
   },

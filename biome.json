@@ -20,7 +20,8 @@
 				"noBannedTypes": "off",
 				"noForEach": "off",
 				"noUselessConstructor": "off",
-				"noStaticOnlyClass": "off"
+				"noStaticOnlyClass": "off",
+				"useLiteralKeys": "off"
 			},
 			"nursery": {
 				"useImportType": "error",
