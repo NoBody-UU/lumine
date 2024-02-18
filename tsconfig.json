@@ -8,9 +8,12 @@
     "experimentalDecorators": true,
     "strict": true,
     "skipLibCheck": true,
-
     "rootDir": "./src",
     "baseUrl": "./",
+    "paths": {
+      "#lumine/structures/*": ["./src/structures/*"],
+      "#lumine/middlewares": ["./src/middlewares/index.ts"],
+    }
   },
   "exclude": ["node_modules"],
 }

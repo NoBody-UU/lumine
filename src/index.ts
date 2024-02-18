@@ -1,8 +1,5 @@
-import { Client } from "paragonjs"; 
+import { Lumine } from "#lumine/structures/Lumine.js";
 
-const client = new Client();
+const client = new Lumine()
 
-(async () => {
-  await client.start();
-  await client.uploadCommands();  
-})();
+export default client;

@@ -1,6 +1,6 @@
 //@ts-check
 import "dotenv/config"
-import { config }  from "paragonjs";
+import { config }  from "seyfert";
 
 if (!process.env.TOKEN) throw new Error("No token provided >:|");
 
@@ -11,8 +11,5 @@ export default config.bot({
       base: "src",
       output: "build",
       commands: "commands",
-      components: "components",
-      events: "events",
-      langs: "locales"
     }
 });

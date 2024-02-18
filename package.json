@@ -19,7 +19,11 @@
   "dependencies": {
     "@prisma/client": "^5.9.1",
     "dotenv": "^16.4.4",
-    "paragonjs": "^0.1.0",
+    "seyfert": "^0.1.0",
     "taskwizard": "^1.0.0"
+  },
+  "imports": {
+    "#lumine/structures/*": "./build/structures/*",
+    "#lumine/middlewares": "./build/middlewares/index.js"
   }
 }
