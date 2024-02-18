@@ -1,12 +1,11 @@
-import { LumineCommand } from "#lumine/builders";
-import { EmbedBuilder } from "@oceanicjs/builders";
+import { Declare, Command, CommandContext } from "paragonjs";
 
-export default new LumineCommand()
-	.setName("ping")
-	.setDescription("Respond with pong!")
-	.sendToGuild()
-	.setExecute(async (client, interaction) => {
-		const embed = new EmbedBuilder().setDescription("Pong!").setColor(client.config.colors.main).toJSON();
-
-		await interaction.reply({ content: "pong! (guild hehe)", embeds: [embed] });
-	});
+@Declare({
+   name: "ping",
+   description: "Ping command",
+})
+export default class PingCommand extends Command {
+    async run(ctx: CommandContext) {
+        await ctx.write({ content: "pong!" });
+    }
+}

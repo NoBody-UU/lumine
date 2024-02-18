@@ -5,20 +5,12 @@
     "module": "NodeNext",
     "resolveJsonModule": true,
     "allowSyntheticDefaultImports": true,
+    "experimentalDecorators": true,
     "strict": true,
     "skipLibCheck": true,
 
     "rootDir": "./src",
     "baseUrl": "./",
-    "paths": {
-      "#lumine/types": ["./src/lib/types/index.ts"],
-      "#lumine/client": ["./src/lib/classes/Lumine.ts"],
-      "#lumine/builders": ["./src/lib/builder/index.ts"],
-      "#lumine/errors": ["./src/lib/errors/index.ts"],
-      "#lumine/validations": ["./src/lib/classes/Validations.ts"],
-      "#lumine/handlers": ["./src/lib/handlers/index.ts"],
-      "#lumine/*": ["./src/*"]
-    }
   },
-  "exclude": ["node_modules", "**/node_modules/*"],
+  "exclude": ["node_modules"],
 }

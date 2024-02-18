@@ -1,14 +1,8 @@
-import "dotenv/config";
+import { Client } from "paragonjs"; 
 
-import { Validations } from "#lumine/validations";
+const client = new Client();
 
-Validations.validateEnv();
-
-import { Lumine } from "#lumine/client";
-const client = new Lumine();
-export default client;
-
-/**
- * © PenwiSquad
- * By: NoBody-UU, JustEvil / SagiriIkeda (please no)
- */
+(async () => {
+  await client.start();
+  await client.uploadCommands();  
+})();

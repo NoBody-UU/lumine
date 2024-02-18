@@ -13,26 +13,13 @@
   "author": "",
   "license": "MIT",
   "devDependencies": {
-    "@biomejs/biome": "1.5.2",
-    "prisma": "^5.8.1"
+    "@biomejs/biome": "1.5.3",
+    "prisma": "^5.9.1"
   },
   "dependencies": {
-    "@oceanicjs/builders": "^1.1.9",
-    "@prisma/client": "^5.8.1",
-    "ascii-table3": "^0.9.0",
-    "chalk": "^5.3.0",
-    "dotenv": "^16.4.1",
-    "oceanic.js": "1.9.1-dev.6b09d92",
-    "pako": "^2.1.0",
+    "@prisma/client": "^5.9.1",
+    "dotenv": "^16.4.4",
+    "paragonjs": "^0.1.0",
     "taskwizard": "^1.0.0"
-  },
-  "imports": {
-    "#lumine/types": "./build/lib/types/index.js",
-    "#lumine/client": "./build/lib/classes/Lumine.js",
-    "#lumine/builders": "./build/lib/builder/index.js",
-    "#lumine/errors": "./build/lib/errors/index.js",
-    "#lumine/validations": "./build/lib/classes/Validations.js",
-    "#lumine/handlers": "./build/lib/handlers/index.js",
-    "#lumine/*": "./build/*"
   }
 }
