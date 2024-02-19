@@ -1,9 +1,9 @@
 import { Client, type ParseClient, type ParseMiddlewares } from "seyfert";
-import { Collection } from "seyfert/lib/collection.js";
+import { LimitedCollection } from "seyfert/lib/collection.js";
 import { LumineMiddlewares } from "#lumine/middlewares";
 
 export class Lumine extends Client {
-	public readonly cooldowns = new Collection<string, number>();
+	public readonly cooldowns = new LimitedCollection<string, number>({});
 
 	constructor() {
 		super({ globalMiddlewares: ["LumineCooldown"] });
@@ -22,7 +22,7 @@ export class Lumine extends Client {
 
 declare module "seyfert" {
 	interface Client {
-		cooldowns: Collection<string, number>;
+		cooldowns: LimitedCollection<string, number>;
 	}
 	interface UsingClient extends ParseClient<Client<true>> {}
 	interface RegisteredMiddlewares extends ParseMiddlewares<typeof LumineMiddlewares> {}

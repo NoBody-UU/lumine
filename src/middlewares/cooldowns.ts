@@ -15,8 +15,7 @@ export const LumineCooldown = createMiddleware<void>(async (middleware) => {
 
 	const userCooldown = cache.get(`${commandName}-${context.author.id}`);
 	if (!userCooldown) {
-		cache.set(`${commandName}-${context.author.id}`, now + cooldown * 1000);
-		setTimeout(() => cache.delete(`${commandName}-${context.author.id}`), cooldown * 1000);
+		cache.set(`${commandName}-${context.author.id}`, now + cooldown * 1000, cooldown * 1000);
 		return next();
 	}
 
